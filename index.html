@@ -2039,7 +2039,7 @@ function restartGame(){
 =============================== */
 
 // ▼▼▼ PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE ▼▼▼
-const HOF_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+const HOF_URL = 'https://script.google.com/macros/s/AKfycbzIEYBbMPAXNc60-miG3tc3xyToUCD9rjE8QXhyFmCcSy7wHnD0LjyZ7U401_lGx1rVEA/exec';
 // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
 
 let hofCache = {};   // keyed by difficulty
@@ -2053,7 +2053,7 @@ function switchHOFTab(level, btn){
 }
 
 async function fetchHOF(level) {
-  if (HOF_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+  if (HOF_URL === 'https://script.google.com/macros/s/AKfycbzIEYBbMPAXNc60-miG3tc3xyToUCD9rjE8QXhyFmCcSy7wHnD0LjyZ7U401_lGx1rVEA/exec') {
     try { return JSON.parse(localStorage.getItem('pitstop_hof_'+level) || '[]'); } catch { return []; }
   }
   try {
@@ -2069,7 +2069,7 @@ async function fetchHOF(level) {
 
 async function submitHOFToSheet(name, crew, time, score) {
   const level = difficulty;
-  if (HOF_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+  if (HOF_URL === 'https://script.google.com/macros/s/AKfycbzIEYBbMPAXNc60-miG3tc3xyToUCD9rjE8QXhyFmCcSy7wHnD0LjyZ7U401_lGx1rVEA/exec') {
     const d = JSON.parse(localStorage.getItem('pitstop_hof_'+level) || '[]');
     d.push({ name, crew, time, score, ts: Date.now() });
     d.sort((a, b) => parseFloat(a.time) - parseFloat(b.time));
@@ -2088,7 +2088,7 @@ async function submitHOFToSheet(name, crew, time, score) {
 
 async function deleteHOFEntries(ids) {
   const level = hofTab;
-  if (HOF_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+  if (HOF_URL === 'https://script.google.com/macros/s/AKfycbzIEYBbMPAXNc60-miG3tc3xyToUCD9rjE8QXhyFmCcSy7wHnD0LjyZ7U401_lGx1rVEA/exec') {
     const d = JSON.parse(localStorage.getItem('pitstop_hof_'+level) || '[]');
     const kept = d.filter((_, i) => !ids.includes(String(i)));
     localStorage.setItem('pitstop_hof_'+level, JSON.stringify(kept));
@@ -2126,7 +2126,7 @@ async function renderHOF() {
 
 async function updateHOFEntry(id, name, crew, time) {
   const level = hofTab;
-  if (HOF_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+  if (HOF_URL === 'https://script.google.com/macros/s/AKfycbzIEYBbMPAXNc60-miG3tc3xyToUCD9rjE8QXhyFmCcSy7wHnD0LjyZ7U401_lGx1rVEA/exec') {
     const d = JSON.parse(localStorage.getItem('pitstop_hof_'+level) || '[]');
     const idx = d.findIndex((_,i) => String(i) === id);
     if(idx > -1){ d[idx].name=name; d[idx].crew=crew; }
